@@ -79,3 +79,9 @@ func (v1 *Vec3) Angle(v2 *Vec3) float64 {
 	v2_len := math.Sqrt(v2.X*v2.X + v2.Y*v2.Y + v2.Z*v2.Z)
 	return math.Abs(math.Acos(dot_prod / (v1_len * v2_len)))
 }
+
+func (v1 *Vec3) LessThan(v2 *Vec3) bool {
+	return (v1.X < v2.X ||
+		v1.X == v2.X && (v1.Y < v2.Y ||
+			v1.Y == v2.Y && v1.Z < v2.Z))
+}
